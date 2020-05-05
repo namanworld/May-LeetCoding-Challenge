@@ -1,0 +1,17 @@
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+        int alpha[26]={0};
+        for (auto c:magazine){
+            alpha[c-'a']++;
+        }
+        for (int i=0; i<ransomNote.size(); i++){
+            char x = ransomNote[i];
+            if(alpha[x-'a']!=0){
+                alpha[x-'a']--;
+            }
+            else return 0;
+        }
+        return 1;
+    }
+};
